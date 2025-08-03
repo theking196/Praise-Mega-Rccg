@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCCG Praise Sanctuary - Ikangba Housing Estate, Ijebu-Ode</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #7b1fa2;
+            --primary-light: #9c4dcc;
+            --primary-dark: #4a148c;
+            --secondary-color: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --gold: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .church-loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+        }
+
+        .church-icon {
+            font-size: 4rem;
+            color: var(--gold);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .loader-cross {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid var(--gold);
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .loader-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), #ffed4a);
+            border-radius: 2px;
+            animation: loading 3s ease-in-out;
+            transform-origin: left;
+        }
+
+        @keyframes loading {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            background: rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            animation: float-particles 6s linear infinite;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; left: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 40%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 60%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 80%; animation-delay: 3s; }
+
+        @keyframes float-particles {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-in-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s ease-in-out;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 1s ease-in-out;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s ease-in-out;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="cross" patternUnits="userSpaceOnUse" width="20" height="20"><path d="M10 2v16M2 10h16" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23cross)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .lead {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-primary-custom {
+            background: var(--gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary-custom:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary-custom:hover {
+            background: #ffed4a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+            color: var(--primary-dark);
+        }
+
+        .btn-primary-custom:active {
+            transform: translateY(-1px);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(123, 31, 162, 0.95) !important;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .navbar.scrolled {
+            background: var(--primary-color) !important;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            color: var(--gold) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--gold) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--secondary-color);
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Service Times */
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(123, 31, 162, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(123, 31, 162, 0.2);
+            border-top-color: var(--gold);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            color: var(--gold);
+            transform: scale(1.1) rotateY(360deg);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-title {
+            color: var(--gold);
+        }
+
+        .service-time {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Gallery */
+        .gallery {
+            background: var(--secondary-color);
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05) rotateY(10deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.4s ease;
+            filter: brightness(0.9);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.2);
+            filter: brightness(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(123, 31, 162, 0.8), rgba(255, 215, 0, 0.6));
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            transform: scale(0);
+            transition: transform 0.3s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1);
+        }
+
+        .gallery-overlay-text {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease 0.2s;
+        }
+
+        .gallery-item:hover .gallery-overlay-text {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(123, 31, 162, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .contact-info:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .contact-info:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(123, 31, 162, 0.15);
+            border: 2px solid var(--gold);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info:hover .contact-icon {
+            color: var(--gold);
+            transform: rotateY(360deg) scale(1.1);
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .whatsapp-btn:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128c7e;
+            color: var(--white);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .lead {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(123, 31, 162, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .scroll-top:hover {
+            background: linear-gradient(135deg, var(--gold), #ffed4a);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Notification Toast */
+        .toast-container {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .custom-toast {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: var(--white);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(123, 31, 162, 0.3);
+        }
+
+        .custom-toast .toast-header {
+            background: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .custom-toast .btn-close {
+            filter: invert(1);
+        }
+
+        /* Progress bar for page load */
+        .progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 99998;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), #ffed4a);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="loader-content">
+            <div class="church-loader">
+                <i class="fas fa-church church-icon"></i>
+                <div class="loader-cross"></div>
+            </div>
+            <div class="loader-text">Welcome to RCCG Praise Sanctuary</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container">
+        <div class="toast custom-toast" id="welcomeToast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="fas fa-church me-2"></i>
+                <strong class="me-auto">RCCG Praise Sanctuary</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Welcome! May God's blessings be upon you today. 🙏
+            </div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-church me-2"></i>RCCG Praise Sanctuary
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content slide-in-left">
+                    <h1>RCCG Praise Sanctuary</h1>
+                    <p class="lead slide-in-right">Welcome to our spiritual home where faith comes alive and communities are built on God's love.</p>
+                    <p class="mb-4 fade-in">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        Ikangba Housing Estate, Ijebu-Ode, Ogun State, Nigeria
+                    </p>
+                    <a href="#contact" class="btn btn-primary-custom scale-in">
+                        <i class="fas fa-calendar-alt me-2"></i>Join Us This Sunday
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">About Our Church</h2>
+                <div class="about-content">
+                    <p>Welcome to RCCG Praise Sanctuary, a vibrant community of believers located in the heart of Ikangba Housing Estate, Ijebu-Ode. We are part of the global Redeemed Christian Church of God family, committed to spreading the Gospel of Jesus Christ and building strong, faith-centered relationships.</p>
+                    
+                    <p>Our church is a place where people from all walks of life come together to worship, learn, and grow in their faith. We believe in the power of prayer, the importance of biblical teaching, and the transformative love of Jesus Christ. Whether you're seeking spiritual guidance, looking for a church family, or simply want to experience God's presence, you'll find a warm welcome here.</p>
+                    
+                    <p>Join us as we continue to serve our community and spread the message of hope, love, and redemption to all who need it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Times Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">Service Times</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="service-card text-center scale-in">
+                            <div class="service-icon">
+                                <i class="fas fa-cross"></i>
+                            </div>
+                            <h3 class="service-title">Sunday Service</h3>
+                            <p class="service-time">9:00 AM - 12:00 PM</p>
+                            <p>Join us for our main worship service with inspiring messages, praise & worship, and fellowship.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service-card text-center scale-in">
+                            <div class="service-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3 class="service-title">Tuesday Bible Study</h3>
+                            <p class="service-time">6:00 PM - 8:00 PM</p>
+                            <p>Deepen your understanding of God's word through interactive Bible study and discussion.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service-card text-center scale-in">
+                            <div class="service-icon">
+                                <i class="fas fa-praying-hands"></i>
+                            </div>
+                            <h3 class="service-title">Thursday Prayer Meeting</h3>
+                            <p class="service-time">6:00 PM - 8:00 PM</p>
+                            <p>Come together in prayer for our church, community, and personal spiritual growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+ 
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="contact-info slide-in-left">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4 class="contact-title">Phone</h4>
+                            <p>+234 801 234 5678</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="contact-info scale-in">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4 class="contact-title">Email</h4>
+                            <p>info@rccgpraisesanctuary.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="contact-info scale-in">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4 class="contact-title">Address</h4>
+                            <p>Ikangba Housing Estate<br>Ijebu-Ode, Ogun State<br>Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="contact-info slide-in-right">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <h4 class="contact-title">WhatsApp</h4>
+                            <a href="https://wa.me/2348012345678" class="whatsapp-btn" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Chat with us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <i class="fas fa-church me-2"></i>RCCG Praise Sanctuary
+            </div>
+            <p>&copy; 2025 Redeemed Christian Church of God, Praise Sanctuary. All rights reserved.</p>
+            <p>Part of the worldwide RCCG family | Jesus is Lord!</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Preloader functionality
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            const progressBar = document.getElementById('progressBar');
+            
+            // Simulate loading progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        preloader.classList.add('fade-out');
+                        document.body.style.overflow = 'visible';
+                        
+                        // Show welcome toast after preloader
+                        setTimeout(() => {
+                            const toast = new bootstrap.Toast(document.getElementById('welcomeToast'));
+                            toast.show();
+                        }, 500);
+                    }, 500);
+                }
+            }, 100);
+        });
+
+        // Hide progress bar after load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.querySelector('.progress-bar-container').style.display = 'none';
+            }, 4000);
+        });
+
+        // Prevent scrolling during preloader
+        document.body.style.overflow = 'hidden';
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Add ripple effect
+                    createRipple(e);
+                }
+            });
+        });
+
+        // Create ripple effect for clicks
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const circle = document.createElement('span');
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+
+            circle.style.width = circle.style.height = diameter + 'px';
+            circle.style.left = event.clientX - button.offsetLeft - radius + 'px';
+            circle.style.top = event.clientY - button.offsetTop - radius + 'px';
+            circle.classList.add('ripple');
+
+            const ripple = button.getElementsByClassName('ripple')[0];
+            if (ripple) {
+                ripple.remove();
+            }
+
+            button.appendChild(circle);
+        }
+
+        // Add ripple CSS
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.4);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Enhanced navbar scroll effect with color transition
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const scrollTop = window.pageYOffset;
+            
+            if (scrollTop > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Hide/show navbar on scroll
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Enhanced scroll animations with different effects
+        function isElementInViewport(el, threshold = 0.1) {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+            
+            return (
+                rect.top <= windowHeight * (1 - threshold) &&
+                rect.bottom >= windowHeight * threshold &&
+                rect.left >= 0 &&
+                rect.right <= windowWidth
+            );
+        }
+
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            elements.forEach((element, index) => {
+                if (isElementInViewport(element, 0.1)) {
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 100); // Stagger animations
+                }
+            });
+        }
+
+        // Parallax effect for hero section
+        function handleParallax() {
+            //const scrolled = window.pageYOffset;
+            //const hero = document.querySelector('.hero');
+            //if (hero) {
+              //  hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            //}
+        }
+
+        // Scroll to top functionality with smooth animation
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function handleScrollToTop() {
+            const scrollButton = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        }
+
+        // Mouse cursor trail effect
+        let mouseTrail = [];
+        function createMouseTrail(e) {
+            const trail = document.createElement('div');
+            trail.className = 'mouse-trail';
+            trail.style.left = e.clientX + 'px';
+            trail.style.top = e.clientY + 'px';
+            document.body.appendChild(trail);
+            
+            mouseTrail.push(trail);
+            if (mouseTrail.length > 5) {
+                const oldTrail = mouseTrail.shift();
+                oldTrail.remove();
+            }
+            
+            setTimeout(() => {
+                trail.remove();
+            }, 500);
+        }
+
+        // Add mouse trail CSS
+        const trailStyle = document.createElement('style');
+        trailStyle.textContent = `
+            .mouse-trail {
+                position: fixed;
+                width: 10px;
+                height: 10px;
+                background: linear-gradient(45deg, var(--gold), var(--primary-color));
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                opacity: 0.7;
+                animation: trail-fade 0.5s ease-out;
+            }
+            @keyframes trail-fade {
+                0% { transform: scale(1); opacity: 0.7; }
+                100% { transform: scale(0); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(trailStyle);
+
+        // Event listeners
+        window.addEventListener('scroll', function() {
+            handleScrollAnimation();
+            handleScrollToTop();
+            handleParallax();
+        });
+
+        window.addEventListener('mousemove', createMouseTrail);
+
+        window.addEventListener('load', function() {
+            handleScrollAnimation();
+        });
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                handleScrollAnimation();
+            }, 100);
+        });
+
+        // Enhanced intersection observer with multiple effects
+        if ('IntersectionObserver' in window) {
+            const observerOptions = {
+                threshold: [0.1, 0.3, 0.7],
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Add special effects for specific elements
+                        if (entry.target.classList.contains('service-card')) {
+                            entry.target.style.animationDelay = '0.2s';
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Close any open modals or return to top
+                scrollToTop();
+            }
+        });
+
+        // Add loading states for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+                this.style.transform = 'scale(1)';
+            });
+            
+            img.style.opacity = '0';
+            img.style.transform = 'scale(0.9)';
+            img.style.transition = 'all 0.3s ease';
+        });
+
+        // Performance optimization: Throttle scroll events
+        function throttle(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Apply throttling to scroll events
+        window.addEventListener('scroll', throttle(function() {
+            handleScrollAnimation();
+            handleScrollToTop();
+            handleParallax();
+        }, 16)); // ~60fps
+        // Add touch gestures for mobile
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartY - touchEndY;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe up - could trigger scroll to next section
+                    console.log('Swiped up');
+                } else {
+                    // Swipe down - could trigger scroll to previous section
+                    console.log('Swiped down');
+                }
+            }
+        }
+
+        // Add service worker for offline functionality (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Register service worker for offline functionality
+                // This would require a separate service-worker.js file
+            });
+        }
+
+        // Add dynamic year to footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.querySelector('.footer p');
+            if (yearElement) {
+                const currentYear = new Date().getFullYear();
+                yearElement.innerHTML = yearElement.innerHTML.replace('2025', currentYear);
+            }
+        });
+
+        // Add Easter egg: Konami code
+        let konamiCode = [];
+        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up, Up, Down, Down, Left, Right, Left, Right, B, A
+
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.keyCode);
+            
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.toString() === konamiSequence.toString()) {
+                // Easter egg activated
+                document.body.style.animation = 'rainbow 2s infinite';
+                
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes rainbow {
+                        0% { filter: hue-rotate(0deg); }
+                        100% { filter: hue-rotate(360deg); }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                    style.remove();
+                }, 4000);
+                
+                konamiCode = [];
+            }
+        });
+
+        // Enhanced error handling
+        window.addEventListener('error', function(e) {
+            console.log('An error occurred:', e.error);
+            // Could show a user-friendly error message
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            if ('performance' in window) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+            }
+        });
+
+        // Add custom context menu for enhanced UX
+        document.addEventListener('contextmenu', function(e) {
+            // Could add custom context menu here
+            // e.preventDefault(); // Uncomment to disable default context menu
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', function(e) {
+            // Tab navigation improvements
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Add focus styles for keyboard navigation
+        const focusStyle = document.createElement('style');
+        focusStyle.textContent = `
+            .keyboard-navigation *:focus {
+                outline: 3px solid var(--gold) !important;
+                outline-offset: 2px !important;
+            }
+        `;
+        document.head.appendChild(focusStyle);
+
+        // Initialize all functionality when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth reveal animations to initial content
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+                handleScrollAnimation();
+            }, 100);
+        });
+
+        // Set initial body opacity for smooth page appearance
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+    </script>
+</body>
+</html>
