@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to RCCG Praise Sanctuary in Ikangba Housing Estate, Ijebu-Ode. Join our vibrant Christian community for Sunday worship (8:30-11:30 AM), Tuesday Digging Deep (5-6 PM), and Thursday Faith Clinic (5-6 PM). Part of the global Redeemed Christian Church of God family.">
+    <meta name="keywords" content="RCCG, Praise Sanctuary, Ijebu-Ode, Ikangba Housing Estate, church, Christian, worship, Sunday service, Bible study, prayer meeting, faith clinic, digging deep, Redeemed Christian Church of God, Ogun State, Nigeria">
+    <meta name="author" content="RCCG Praise Sanctuary">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
     <title>RCCG Praise Sanctuary - Ikangba Housing Estate, Ijebu-Ode</title>
     
     <!-- Bootstrap 5 CSS -->
@@ -71,10 +77,14 @@
             margin: 0 auto 2rem;
         }
 
-        .church-icon {
-            font-size: 4rem;
-            color: var(--gold);
+        .church-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
             animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
 
         @keyframes pulse {
@@ -302,11 +312,22 @@
             font-weight: 700;
             font-size: 1.5rem;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
         }
 
         .navbar-brand:hover {
             transform: scale(1.05);
             color: var(--gold) !important;
+        }
+
+        .navbar-logo {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 2px solid var(--gold);
         }
 
         .nav-link {
@@ -439,83 +460,141 @@
             font-weight: 500;
         }
 
-        /* Gallery */
-        .gallery {
+        /* Social Media Section */
+        .social-media {
             background: var(--secondary-color);
         }
 
-        .gallery-item {
+        .social-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            transform-style: preserve-3d;
+            border-top: 4px solid transparent;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.05) rotateY(10deg);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: all 0.4s ease;
-            filter: brightness(0.9);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.2);
-            filter: brightness(1.1);
-        }
-
-        .gallery-overlay {
+        .social-card::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(123, 31, 162, 0.8), rgba(255, 215, 0, 0.6));
+            background: linear-gradient(135deg, var(--primary-color), var(--gold));
             opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .social-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(123, 31, 162, 0.15);
+        }
+
+        .social-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
             transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            position: relative;
+            z-index: 2;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
+        .social-card:hover .social-icon {
+            transform: rotateY(360deg) scale(1.1);
         }
 
-        .gallery-overlay i {
-            color: var(--white);
-            font-size: 2rem;
-            margin-bottom: 10px;
-            transform: scale(0);
-            transition: transform 0.3s ease 0.1s;
+        .social-card.facebook .social-icon {
+            color: #1877f2;
         }
 
-        .gallery-item:hover .gallery-overlay i {
-            transform: scale(1);
+        .social-card.instagram .social-icon {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .gallery-overlay-text {
-            color: var(--white);
+        .social-card.youtube .social-icon {
+            color: #ff0000;
+        }
+
+        .social-card.whatsapp .social-icon {
+            color: #25d366;
+        }
+
+        .social-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            text-align: center;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.3s ease 0.2s;
+            color: var(--white);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
         }
 
-        .gallery-item:hover .gallery-overlay-text {
-            transform: translateY(0);
-            opacity: 1;
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .social-btn:hover::before {
+            left: 100%;
+        }
+
+        .social-btn.facebook {
+            background: #1877f2;
+        }
+
+        .social-btn.facebook:hover {
+            background: #166fe5;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(24, 119, 242, 0.3);
+        }
+
+        .social-btn.instagram {
+            background: linear-gradient(45deg, #f09433, #dc2743);
+        }
+
+        .social-btn.instagram:hover {
+            background: linear-gradient(45deg, #e6683c, #cc2366);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(220, 39, 67, 0.3);
+        }
+
+        .social-btn.youtube {
+            background: #ff0000;
+        }
+
+        .social-btn.youtube:hover {
+            background: #e60000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
+        }
+
+        .social-btn.whatsapp {
+            background: #25d366;
+        }
+
+        .social-btn.whatsapp:hover {
+            background: #128c7e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
         }
 
         /* Contact Section */
@@ -578,43 +657,6 @@
             z-index: 2;
         }
 
-        .whatsapp-btn {
-            background: #25d366;
-            color: var(--white);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-decoration: none;
-            margin-top: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .whatsapp-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .whatsapp-btn:hover::before {
-            left: 100%;
-        }
-
-        .whatsapp-btn:hover {
-            background: #128c7e;
-            color: var(--white);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-
         /* Footer */
         .footer {
             background: var(--primary-dark);
@@ -627,6 +669,18 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 2px solid var(--gold);
         }
 
         .footer p {
@@ -650,6 +704,11 @@
             
             .section {
                 padding: 60px 0;
+            }
+
+            .navbar-logo {
+                width: 30px;
+                height: 30px;
             }
         }
 
@@ -745,7 +804,8 @@
         <div class="particle"></div>
         <div class="loader-content">
             <div class="church-loader">
-                <i class="fas fa-church church-icon"></i>
+                <!-- Replace this src with your church logo URL -->
+                <img src="https://via.placeholder.com/80x80/7b1fa2/ffffff?text=LOGO" alt="Church Logo" class="church-logo">
                 <div class="loader-cross"></div>
             </div>
             <div class="loader-text">Welcome to RCCG Praise Sanctuary</div>
@@ -764,7 +824,8 @@
     <div class="toast-container">
         <div class="toast custom-toast" id="welcomeToast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-                <i class="fas fa-church me-2"></i>
+                <!-- Replace this src with your church logo URL -->
+                <img src="https://via.placeholder.com/20x20/7b1fa2/ffffff?text=L" alt="Logo" width="20" height="20" class="me-2" style="border-radius: 50%;">
                 <strong class="me-auto">RCCG Praise Sanctuary</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
             </div>
@@ -773,11 +834,14 @@
             </div>
         </div>
     </div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <i class="fas fa-church me-2"></i>RCCG Praise Sanctuary
+                <!-- Replace this src with your church logo URL -->
+                <img src="https://via.placeholder.com/35x35/7b1fa2/ffffff?text=L" alt="Church Logo" class="navbar-logo">
+                RCCG Praise Sanctuary
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -794,7 +858,7 @@
                         <a class="nav-link" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
+                        <a class="nav-link" href="#social">Connect</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -851,28 +915,28 @@
                                 <i class="fas fa-cross"></i>
                             </div>
                             <h3 class="service-title">Sunday Service</h3>
-                            <p class="service-time">9:00 AM - 12:00 PM</p>
+                            <p class="service-time">8:30 AM - 11:30 AM</p>
                             <p>Join us for our main worship service with inspiring messages, praise & worship, and fellowship.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="service-card text-center scale-in">
                             <div class="service-icon">
-                                <i class="fas fa-book-open"></i>
+                                <i class="fas fa-search"></i>
                             </div>
-                            <h3 class="service-title">Tuesday Bible Study</h3>
-                            <p class="service-time">6:00 PM - 8:00 PM</p>
-                            <p>Deepen your understanding of God's word through interactive Bible study and discussion.</p>
+                            <h3 class="service-title">Tuesday - Digging Deep</h3>
+                            <p class="service-time">5:00 PM - 6:00 PM</p>
+                            <p>Deepen your understanding of God's word through intensive Bible study and spiritual exploration.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="service-card text-center scale-in">
                             <div class="service-icon">
-                                <i class="fas fa-praying-hands"></i>
+                                <i class="fas fa-heart-pulse"></i>
                             </div>
-                            <h3 class="service-title">Thursday Prayer Meeting</h3>
-                            <p class="service-time">6:00 PM - 8:00 PM</p>
-                            <p>Come together in prayer for our church, community, and personal spiritual growth.</p>
+                            <h3 class="service-title">Thursday - Faith Clinic</h3>
+                            <p class="service-time">5:00 PM - 6:00 PM</p>
+                            <p>Come for spiritual healing, prayer for the sick, and strengthening your faith in God's power.</p>
                         </div>
                     </div>
                 </div>
@@ -880,53 +944,82 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
- 
+    <!-- Social Media Section -->
+    <section id="social" class="section social-media">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">Connect With Us</h2>
+                <p class="text-center mb-5">Stay connected with our church family through social media and join our online community.</p>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="social-card facebook scale-in">
+                            <div class="social-icon">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <h4 class="mb-3">Facebook</h4>
+                            <p class="mb-3">Follow us for daily inspiration, event updates, and community highlights.</p>
+                            <a href="#" class="social-btn facebook" target="_blank">
+                                <i class="fab fa-facebook me-2"></i>Follow Us
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="social-card instagram scale-in">
+                            <div class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <h4 class="mb-3">Instagram</h4>
+                            <p class="mb-3">See our church life through photos and stories of God's goodness.</p>
+                            <a href="#" class="social-btn instagram" target="_blank">
+                                <i class="fab fa-instagram me-2"></i>Follow Us
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="social-card youtube scale-in">
+                            <div class="social-icon">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <h4 class="mb-3">YouTube</h4>
+                            <p class="mb-3">Watch our sermons, testimonies, and special church events online.</p>
+                            <a href="#" class="social-btn youtube" target="_blank">
+                                <i class="fab fa-youtube me-2"></i>Subscribe
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="social-card whatsapp scale-in">
+                            <div class="social-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <h4 class="mb-3">WhatsApp</h4>
+                            <p class="mb-3">Join our WhatsApp group for quick updates and prayer requests.</p>
+                            <a href="#" class="social-btn whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Join Group
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
             <div class="fade-in">
                 <h2 class="section-title">Get In Touch</h2>
-                <div class="row">
-<!--                     <div class="col-md-3">
-                        <div class="contact-info slide-in-left">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <h4 class="contact-title">Phone</h4>
-                            <p>+234 801 234 5678</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="contact-info scale-in">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <h4 class="contact-title">Email</h4>
-                            <p>info@rccgpraisesanctuary.com</p>
-                        </div>
-                    </div> -->
-                    <div class="col-md-3">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
                         <div class="contact-info scale-in">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
-                            <h4 class="contact-title">Address</h4>
+                            <h4 class="contact-title">Visit Us</h4>
                             <p>Ikangba Housing Estate<br>Ijebu-Ode, Ogun State<br>Nigeria</p>
+                            <p class="mt-3"><strong>We'd love to welcome you to our church family!</strong></p>
                         </div>
                     </div>
-<!--                     <div class="col-md-3">
-                        <div class="contact-info slide-in-right">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <h4 class="contact-title">WhatsApp</h4>
-                            <a href="https://wa.me/2348012345678" class="whatsapp-btn" target="_blank">
-                                <i class="fab fa-whatsapp me-2"></i>Chat with us
-                            </a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -936,7 +1029,9 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-logo">
-                <i class="fas fa-church me-2"></i>RCCG Praise Sanctuary
+                <!-- Replace this src with your church logo URL -->
+                <img src="https://via.placeholder.com/40x40/7b1fa2/ffffff?text=L" alt="Church Logo" class="footer-logo-img">
+                RCCG Praise Sanctuary
             </div>
             <p>&copy; 2025 Redeemed Christian Church of God, Praise Sanctuary. All rights reserved.</p>
             <p>Part of the worldwide RCCG family | Jesus is Lord!</p>
@@ -1093,15 +1188,6 @@
             });
         }
 
-        // Parallax effect for hero section
-        function handleParallax() {
-            //const scrolled = window.pageYOffset;
-            //const hero = document.querySelector('.hero');
-            //if (hero) {
-              //  hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            //}
-        }
-
         // Scroll to top functionality with smooth animation
         function scrollToTop() {
             window.scrollTo({
@@ -1164,7 +1250,6 @@
         window.addEventListener('scroll', function() {
             handleScrollAnimation();
             handleScrollToTop();
-            handleParallax();
         });
 
         window.addEventListener('mousemove', createMouseTrail);
@@ -1242,8 +1327,8 @@
         window.addEventListener('scroll', throttle(function() {
             handleScrollAnimation();
             handleScrollToTop();
-            handleParallax();
         }, 16)); // ~60fps
+
         // Add touch gestures for mobile
         let touchStartY = 0;
         let touchEndY = 0;
@@ -1263,21 +1348,11 @@
             
             if (Math.abs(diff) > swipeThreshold) {
                 if (diff > 0) {
-                    // Swipe up - could trigger scroll to next section
                     console.log('Swiped up');
                 } else {
-                    // Swipe down - could trigger scroll to previous section
                     console.log('Swiped down');
                 }
             }
-        }
-
-        // Add service worker for offline functionality (optional)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                // Register service worker for offline functionality
-                // This would require a separate service-worker.js file
-            });
         }
 
         // Add dynamic year to footer
@@ -1288,81 +1363,6 @@
                 yearElement.innerHTML = yearElement.innerHTML.replace('2025', currentYear);
             }
         });
-
-        // Add Easter egg: Konami code
-        let konamiCode = [];
-        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up, Up, Down, Down, Left, Right, Left, Right, B, A
-
-        document.addEventListener('keydown', function(e) {
-            konamiCode.push(e.keyCode);
-            
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
-            }
-            
-            if (konamiCode.toString() === konamiSequence.toString()) {
-                // Easter egg activated
-                document.body.style.animation = 'rainbow 2s infinite';
-                
-                const style = document.createElement('style');
-                style.textContent = `
-                    @keyframes rainbow {
-                        0% { filter: hue-rotate(0deg); }
-                        100% { filter: hue-rotate(360deg); }
-                    }
-                `;
-                document.head.appendChild(style);
-                
-                setTimeout(() => {
-                    document.body.style.animation = '';
-                    style.remove();
-                }, 4000);
-                
-                konamiCode = [];
-            }
-        });
-
-        // Enhanced error handling
-        window.addEventListener('error', function(e) {
-            console.log('An error occurred:', e.error);
-            // Could show a user-friendly error message
-        });
-
-        // Performance monitoring
-        window.addEventListener('load', function() {
-            if ('performance' in window) {
-                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-                console.log('Page load time:', loadTime + 'ms');
-            }
-        });
-
-        // Add custom context menu for enhanced UX
-        document.addEventListener('contextmenu', function(e) {
-            // Could add custom context menu here
-            // e.preventDefault(); // Uncomment to disable default context menu
-        });
-
-        // Accessibility improvements
-        document.addEventListener('keydown', function(e) {
-            // Tab navigation improvements
-            if (e.key === 'Tab') {
-                document.body.classList.add('keyboard-navigation');
-            }
-        });
-
-        document.addEventListener('mousedown', function() {
-            document.body.classList.remove('keyboard-navigation');
-        });
-
-        // Add focus styles for keyboard navigation
-        const focusStyle = document.createElement('style');
-        focusStyle.textContent = `
-            .keyboard-navigation *:focus {
-                outline: 3px solid var(--gold) !important;
-                outline-offset: 2px !important;
-            }
-        `;
-        document.head.appendChild(focusStyle);
 
         // Initialize all functionality when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
